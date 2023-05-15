@@ -1,9 +1,8 @@
-#ifndef ENEMYSYSTEM_H
-#define ENEMYSYSTEM_H
+#pragma once
 
 #include "EnemySpawnerTile.h"
 #include "Rat.h"
-#include "Bird1.h"
+#include "Bird.h"
 
 enum EnemyTypes {RAT = 0, BIRD1};
 
@@ -30,5 +29,3 @@ public:
 	void update(const float& dt);
 	void render(sf::RenderTarget* target);
 };
-
-#endif //!ENEMYSYSTEM_H

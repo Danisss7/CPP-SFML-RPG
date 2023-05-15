@@ -1,8 +1,9 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "Entity.h"
-//#include "Items.h"
-//#include "Inventory.h"
+#include "Items.h"
+#include "Inventory.h"
 
 class Entity;
 
@@ -11,11 +12,11 @@ class Player :
 {
 private:
 	//Variables
-	/*Inventory* inventory;
+	Inventory* inventory;
 
 	bool initAttack;
 	bool attacking;
-	Weapon* weapon;*/
+	Weapon* weapon;
 
 	sf::Clock damageTimer;
 	sf::Int32 damageTimerMax;
@@ -32,7 +33,7 @@ public:
 
 	//Accessors
 	AttributeComponent* getAttributeComponent();
-	/*Weapon* getWeapon() const;*/
+	Weapon* getWeapon() const;
 
 	const std::string toStringCharacterTab() const;
 	const bool& getInitAttack() const;
@@ -55,3 +56,5 @@ public:
 
 	void render(sf::RenderTarget& target, sf::Shader* shader = NULL, const sf::Vector2f light_position = sf::Vector2f(), const bool show_hitbox = false);
 };
+
+#endif

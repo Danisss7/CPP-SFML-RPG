@@ -1,5 +1,4 @@
-#ifndef RANGEDWEAPON_H
-#define RANGEDWEAPON_H
+#pragma once
 
 #include "Weapon.h"
 
@@ -21,5 +20,3 @@ public:
 	virtual void update(const sf::Vector2f& mouse_pos_view, const sf::Vector2f center) = 0;
 	virtual void render(sf::RenderTarget& target, sf::Shader* shader = nullptr) = 0;
 };
-
-#endif //!RANGEDWEAPON_H;
