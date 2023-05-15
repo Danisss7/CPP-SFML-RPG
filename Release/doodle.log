@@ -1,0 +1,31 @@
+﻿  Main.cpp
+C:\Users\sause\Desktop\game 2\Sources\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Button.cpp
+  Entity.cpp
+  Game.cpp
+  GameState.cpp
+  MainMenuState.cpp
+C:\Users\sause\Desktop\game 2\Sources\MainMenuState.cpp(41,78): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\sause\Desktop\game 2\Sources\MainMenuState.cpp(41,57): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  State.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 594 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  doodle.vcxproj -> C:\Users\sause\Desktop\game 2\doodle.exe
