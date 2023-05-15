@@ -15,19 +15,21 @@ private:
 
 	//Initializer functions
 
-
 public:
-	MovementComponent(sf::Sprite& sprite, float maxVelocity, 
-		float acceleration, float deceleration);
+	MovementComponent(sf::Sprite& sprite,
+		float maxVelocity, float acceleration, float deceleration);
 	virtual ~MovementComponent();
 
-	//Accesors
+	//Accessors
 	const float& getMaxVelocity() const;
 	const sf::Vector2f& getVelocity() const;
 
 	//Functions
 	const bool getState(const short unsigned state) const;
+	void stopVelocity();
+	void stopVelocityX();
+	void stopVelocityY();
 
-	void move(const float dir_x, const float dir_y, const float& dt);
+	void move(const float x, const float y, const float& dt);
 	void update(const float& dt);
 };

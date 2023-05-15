@@ -6,31 +6,32 @@
 #include "Gui.h"
 
 class MainMenuState :
-    public State
+	public State
 {
 private:
-    //variables
-    sf::Texture backgroundTexture;
-    sf::RectangleShape background;
-    sf::Font font;
+	//Variables
+	sf::Texture backgroundTexture;
+	sf::RectangleShape background;
+	sf::Font font;
 
-    std::map<std::string, gui::Button*> buttons;
+	sf::RectangleShape btnBackground;
+	std::map<std::string, gui::Button*> buttons;
 
-    //functions
-    void initVariables();
-    void initBackground();
-    void initFonts();
-    void initKeybinds();
-    void initButtons();
+	//Functions
+	void initVariables();
+	void initFonts();
+	void initKeybinds();
+	void initGui();
+	void resetGui();
+
 public:
-    MainMenuState(StateData* state_data);
-    virtual ~MainMenuState();
+	MainMenuState(StateData* state_data);
+	virtual ~MainMenuState();
 
-    //functions
-    void updateButtons();
-    void updateInput(const float& dt);
-    void update(const float& dt);
-    void renderButtons(sf::RenderTarget& target);
-    void render(sf::RenderTarget* target = NULL);
+	//Functions
+	void updateInput(const float& dt);
+	void updateButtons();
+	void update(const float& dt);
+	void renderButtons(sf::RenderTarget& target);
+	void render(sf::RenderTarget* target = NULL);
 };
-

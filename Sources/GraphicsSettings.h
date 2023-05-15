@@ -1,4 +1,5 @@
 #pragma once
+
 class GraphicsSettings
 {
 public:
@@ -8,7 +9,7 @@ public:
 	std::string title;
 	sf::VideoMode resolution;
 	bool fullscreen;
-	bool verticalsync;
+	bool verticalSync;
 	unsigned frameRateLimit;
 	sf::ContextSettings contextSettings;
 	std::vector<sf::VideoMode> videoModes;
@@ -17,4 +18,3 @@ public:
 	void saveToFile(const std::string path);
 	void loadFromFile(const std::string path);
 };
-

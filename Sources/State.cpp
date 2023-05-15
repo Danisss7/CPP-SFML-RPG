@@ -19,7 +19,7 @@ State::~State()
 
 }
 
-//Acessors
+//Accessors
 const bool& State::getQuit() const
 {
 	return this->quit;
@@ -32,8 +32,8 @@ const bool State::getKeytime()
 		this->keytime = 0.f;
 		return true;
 	}
-	else
-		return false;
+
+	return false;
 }
 
 //Functions
@@ -52,11 +52,22 @@ void State::unpauseState()
 	this->paused = false;
 }
 
-void State::updateMousePositions()
+void State::updateMousePositions(sf::View* view)
 {
 	this->mousePosScreen = sf::Mouse::getPosition();
 	this->mousePosWindow = sf::Mouse::getPosition(*this->window);
+
+	if (view)
+		this->window->setView(*view);
+
 	this->mousePosView = this->window->mapPixelToCoords(sf::Mouse::getPosition(*this->window));
+	this->mousePosGrid =
+		sf::Vector2i(
+			static_cast<int>(this->mousePosView.x) / static_cast<int>(this->gridSize),
+			static_cast<int>(this->mousePosView.y) / static_cast<int>(this->gridSize)
+		);
+
+	this->window->setView(this->window->getDefaultView());
 }
 
 void State::updateKeytime(const float& dt)

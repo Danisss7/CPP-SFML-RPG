@@ -1,6 +1,5 @@
-// header.h
-#ifndef HEADER_H
-#define HEADER_H
+//header.h
+#pragma once
 
 //Core
 #include <algorithm>
@@ -25,5 +24,3 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include <SFML\Network.hpp>
-
-#endif

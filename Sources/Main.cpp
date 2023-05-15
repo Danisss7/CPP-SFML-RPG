@@ -1,7 +1,6 @@
-#include "stdafx.h"
-#include "Game.h"
-
-using namespace std;
+#include"stdafx.h"
+#include"Game.h"
+#include<Windows.h>
 
 int main()
 {

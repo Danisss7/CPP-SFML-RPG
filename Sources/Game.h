@@ -1,12 +1,11 @@
 #pragma once
 
-#include "GameState.h"
 #include "MainMenuState.h"
 
 class Game
 {
 private:
-	//variables
+	//Variables
 	GraphicsSettings gfxSettings;
 	StateData stateData;
 	sf::RenderWindow* window;
@@ -21,7 +20,7 @@ private:
 
 	float gridSize;
 
-	//initialization
+	//Initialization
 	void initVariables();
 	void initGraphicsSettings();
 	void initWindow();
@@ -30,24 +29,23 @@ private:
 	void initStates();
 
 public:
-	//constructors/destructors
+	//Constructors/Destructors
 	Game();
 	virtual ~Game();
 
-	//functions
+	//Functions
 
-	//regular functions
+	//Regular
 	void endApplication();
-	
-	//uppdate
+
+	//Update
 	void updateDt();
 	void updateSFMLEvents();
 	void update();
 
-	//render
+	//Render
 	void render();
 
-	//core
+	//Core
 	void run();
 };
-
