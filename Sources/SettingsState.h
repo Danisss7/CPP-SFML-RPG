@@ -30,7 +30,6 @@ public:
 	SettingsState(StateData* state_data);
 	virtual ~SettingsState();
 
-	//Accessors
 
 	//Functions
 	void updateInput(const float& dt);

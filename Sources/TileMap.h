@@ -1,5 +1,4 @@
-#ifndef TILEMAP_H
-#define TILEMAP_H
+#pragma once
 
 #include "EnemySpawnerTile.h"
 #include "RegularTile.h"
@@ -63,5 +62,3 @@ public:
 	);
 	void renderDeferred(sf::RenderTarget& target, sf::Shader* shader = NULL, const sf::Vector2f playerPosition = sf::Vector2f());
 };
-
-#endif

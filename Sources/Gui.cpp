@@ -3,43 +3,16 @@
 
 const float gui::p2pX(const float perc, const sf::VideoMode& vm)
 {
-	/*
-	 * Converts a percentage value to pixels relative to the current resolution in the x-axis.
-	 *
-	 * @param		float perc				The percentage value.
-	 * @param		sf::VideoMode& vm		The current videomode of the window (resolution).
-	 *
-	 * @return		float					The calculated pixel value.
-	 */
-
 	return std::floor(static_cast<float>(vm.width) * (perc / 100.f));
 }
 
 const float gui::p2pY(const float perc, const sf::VideoMode& vm)
 {
-	/*
-	 * Converts a percentage value to pixels relative to the current resolution in the y-axis.
-	 *
-	 * @param		float perc				The percentage value.
-	 * @param		sf::VideoMode& vm		The current videomode of the window (resolution).
-	 *
-	 * @return		float					The calculated pixel value.
-	 */
-
 	return std::floor(static_cast<float>(vm.height) * (perc / 100.f));
 }
 
 const unsigned gui::calcCharSize(const sf::VideoMode& vm, const unsigned modifier)
 {
-	/*
-	 * Calculates the character size for text using the current resolution and a constant.
-	 *
-	 * @param		sf::VideoMode& vm		The current videomode of the window (resolution).
-	 * @param		unsigned modifier		Used to modify the character size in a more custom way.
-	 *
-	 * @return		unsigned				The calculated character size value.
-	 */
-
 	return static_cast<unsigned>((vm.width + vm.height) / modifier);
 }
 
@@ -102,7 +75,7 @@ const std::string gui::Button::getText() const
 	return this->text.getString();
 }
 
-const short unsigned& gui::Button::getId() const
+const short unsigned & gui::Button::getId() const
 {
 	return this->id;
 }
@@ -179,8 +152,6 @@ gui::DropDownList::DropDownList(float x, float y, float width, float height,
 	unsigned nrOfElements, unsigned default_index)
 	: font(font), showList(false), keytimeMax(1.f), keytime(0.f)
 {
-	//unsigned nrOfElements = sizeof(list) / sizeof(std::string);
-
 	this->activeElement = new gui::Button(
 		x, y, width, height,
 		&this->font, list[default_index], 14,
@@ -193,7 +164,7 @@ gui::DropDownList::DropDownList(float x, float y, float width, float height,
 	{
 		this->list.push_back(
 			new gui::Button(
-				x, y + ((i + 1) * height), width, height,
+				x, y + ((i+1) * height), width, height,
 				&this->font, list[i], 14,
 				sf::Color(255, 255, 255, 150), sf::Color(255, 255, 255, 255), sf::Color(20, 20, 20, 50),
 				sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 200), sf::Color(20, 20, 20, 200),
@@ -225,7 +196,7 @@ const bool gui::DropDownList::getKeytime()
 	return false;
 }
 
-const unsigned short& gui::DropDownList::getActiveElementId() const
+const unsigned short & gui::DropDownList::getActiveElementId() const
 {
 	return this->activeElement->getId();
 }
@@ -237,7 +208,7 @@ void gui::DropDownList::updateKeytime(const float& dt)
 		this->keytime += 10.f * dt;
 }
 
-void gui::DropDownList::update(const sf::Vector2i& mousePosWindow, const float& dt)
+void gui::DropDownList::update(const sf::Vector2i & mousePosWindow, const float& dt)
 {
 	this->updateKeytime(dt);
 
@@ -254,7 +225,7 @@ void gui::DropDownList::update(const sf::Vector2i& mousePosWindow, const float& 
 
 	if (this->showList)
 	{
-		for (auto& i : this->list)
+		for (auto &i : this->list)
 		{
 			i->update(mousePosWindow);
 
@@ -268,13 +239,13 @@ void gui::DropDownList::update(const sf::Vector2i& mousePosWindow, const float& 
 	}
 }
 
-void gui::DropDownList::render(sf::RenderTarget& target)
+void gui::DropDownList::render(sf::RenderTarget & target)
 {
 	this->activeElement->render(target);
 
 	if (this->showList)
 	{
-		for (auto& i : this->list)
+		for (auto &i : this->list)
 		{
 			i->render(target);
 		}
@@ -282,9 +253,9 @@ void gui::DropDownList::render(sf::RenderTarget& target)
 }
 
 //TEXTURE SELECTOR ===================================================
-gui::TextureSelector::TextureSelector(float x, float y, float width, float height,
+gui::TextureSelector::TextureSelector(float x, float y, float width, float height, 
 	float gridSize, const sf::Texture* texture_sheet,
-	sf::Font& font, std::string text)
+	sf::Font& font, std::string text) 
 	: keytimeMax(1.f), keytime(0.f)
 {
 	this->gridSize = gridSize;
@@ -411,7 +382,7 @@ void gui::TextureSelector::render(sf::RenderTarget& target)
 	this->hide_btn->render(target);
 }
 
-// PROGRESSBAR ============================================================================= PROGRESSBAR
+// PROGRESSBAR =============================================================================
 
 gui::ProgressBar::ProgressBar(float _x, float _y, float _width, float _height,
 	sf::Color inner_color, unsigned character_size,
@@ -428,7 +399,7 @@ gui::ProgressBar::ProgressBar(float _x, float _y, float _width, float _height,
 	this->back.setFillColor(sf::Color(50, 50, 50, 200));
 	this->back.setPosition(x, y);
 
-	this->inner.setSize(sf::Vector2f(width, height));
+	this->inner.setSize(sf::Vector2f(width * 2, height));
 	this->inner.setFillColor(inner_color);
 	this->inner.setPosition(this->back.getPosition());
 
@@ -455,7 +426,7 @@ void gui::ProgressBar::update(const int current_value, const int max_value)
 
 	this->inner.setSize(
 		sf::Vector2f(
-			static_cast<float>(std::floor(max_value * percent)),
+			static_cast<float>(std::floor(max_value * percent) * 2),
 			this->inner.getSize().y
 		)
 	);
@@ -464,7 +435,7 @@ void gui::ProgressBar::update(const int current_value, const int max_value)
 	this->text.setString(this->barString);
 }
 
-void gui::ProgressBar::render(sf::RenderTarget& target)
+void gui::ProgressBar::render(sf::RenderTarget & target)
 {
 	target.draw(this->back);
 	target.draw(this->inner);

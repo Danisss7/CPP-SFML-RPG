@@ -30,7 +30,7 @@ void Entity::setTexture(sf::Texture& texture)
 	this->sprite.setTexture(texture);
 }
 
-void Entity::createHitboxComponent(sf::Sprite& sprite,
+void Entity::createHitboxComponent(sf::Sprite & sprite, 
 	float offset_x, float offset_y,
 	float width, float height)
 {
@@ -42,7 +42,7 @@ void Entity::createMovementComponent(const float maxVelocity, const float accele
 	this->movementComponent = new MovementComponent(this->sprite, maxVelocity, acceleration, deceleration);
 }
 
-void Entity::createAnimationComponent(sf::Texture& texture_sheet)
+void Entity::createAnimationComponent(sf::Texture & texture_sheet)
 {
 	this->animationComponent = new AnimationComponent(this->sprite, texture_sheet);
 }
@@ -82,7 +82,7 @@ SkillComponent* Entity::getSkillComponent()
 	return this->skillComponent;
 }
 
-const sf::Vector2f& Entity::getPosition() const
+const sf::Vector2f & Entity::getPosition() const
 {
 	if (this->hitboxComponent)
 		return this->hitboxComponent->getPosition();
@@ -98,16 +98,16 @@ const sf::Vector2f& Entity::getSpritePosition() const
 const sf::Vector2f Entity::getCenter() const
 {
 	if (this->hitboxComponent)
-		return
-		this->hitboxComponent->getPosition() +
-		sf::Vector2f
-		(
-			this->hitboxComponent->getGlobalBounds().width / 2.f,
-			this->hitboxComponent->getGlobalBounds().height / 2.f
-		);
+		return 
+			this->hitboxComponent->getPosition() + 
+			sf::Vector2f
+			(
+				this->hitboxComponent->getGlobalBounds().width / 2.f,
+				this->hitboxComponent->getGlobalBounds().height / 2.f
+			);
 
-	return
-		this->sprite.getPosition() +
+	return 
+		this->sprite.getPosition() + 
 		sf::Vector2f
 		(
 			this->sprite.getGlobalBounds().width / 2.f,
@@ -151,7 +151,7 @@ const sf::FloatRect Entity::getNextPositionBounds(const float& dt) const
 {
 	if (this->hitboxComponent && this->movementComponent)
 		return this->hitboxComponent->getNextPosition(this->movementComponent->getVelocity() * dt);
-
+	
 	return sf::FloatRect(-1.f, -1.f, -1.f, -1.f);
 }
 

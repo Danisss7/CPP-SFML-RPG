@@ -1,4 +1,5 @@
 #pragma once
+
 #include "EditorMode.h"
 
 class State;

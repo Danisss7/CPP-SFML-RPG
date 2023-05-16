@@ -56,7 +56,7 @@ void MainMenuState::initGui()
 	//Button background
 	this->btnBackground.setSize(
 		sf::Vector2f(
-			static_cast<float>(vm.width / 5),
+			static_cast<float>(vm.width / 5), 
 			static_cast<float>(vm.height)
 		)
 	);
@@ -66,7 +66,7 @@ void MainMenuState::initGui()
 
 	//Buttons
 	this->buttons["GAME_STATE"] = new gui::Button(
-		gui::p2pX(15.6f, vm), gui::p2pY(30.f, vm),
+		gui::p2pX(15.6f, vm), gui::p2pY(30.f, vm), 
 		gui::p2pX(13.f, vm), gui::p2pY(6.f, vm),
 		&this->font, "New Game", gui::calcCharSize(vm),
 		sf::Color(200, 200, 200, 200), sf::Color(255, 255, 255, 255), sf::Color(20, 20, 20, 50),
@@ -102,7 +102,7 @@ void MainMenuState::resetGui()
 	 *
 	 * @return void
 	 */
-
+	
 	auto it = this->buttons.begin();
 	for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
 	{
@@ -133,16 +133,16 @@ MainMenuState::~MainMenuState()
 }
 
 
-void MainMenuState::updateInput(const float& dt)
+void MainMenuState::updateInput(const float & dt)
 {
-
+	
 }
 
 void MainMenuState::updateButtons()
 {
 	/*Updates all the buttons in the state and handles their functionlaity.*/
 
-	for (auto& it : this->buttons)
+	for (auto &it : this->buttons)
 	{
 		it.second->update(this->mousePosWindow);
 	}
@@ -182,7 +182,7 @@ void MainMenuState::update(const float& dt)
 
 void MainMenuState::renderButtons(sf::RenderTarget& target)
 {
-	for (auto& it : this->buttons)
+	for (auto &it : this->buttons)
 	{
 		it.second->render(target);
 	}

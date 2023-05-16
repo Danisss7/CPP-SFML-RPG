@@ -2,8 +2,7 @@
 
 #include "Enemy.h"
 
-class Bird1 :
-    public Enemy
+class Bird1 : public Enemy
 {
 private:
 	void initVariables();

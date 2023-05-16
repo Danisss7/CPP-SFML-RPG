@@ -22,17 +22,17 @@ void Game::initWindow()
 {
 	/*Creates a SFML window.*/
 
-	if (this->gfxSettings.fullscreen)
+	if(this->gfxSettings.fullscreen)
 		this->window = new sf::RenderWindow(
-			this->gfxSettings.resolution,
-			this->gfxSettings.title,
-			sf::Style::Fullscreen,
+			this->gfxSettings.resolution, 
+			this->gfxSettings.title, 
+			sf::Style::Fullscreen, 
 			this->gfxSettings.contextSettings);
 	else
 		this->window = new sf::RenderWindow(
 			this->gfxSettings.resolution,
 			this->gfxSettings.title,
-			sf::Style::Titlebar | sf::Style::Close,
+			sf::Style::Titlebar | sf::Style::Close, 
 			this->gfxSettings.contextSettings);
 
 	this->window->setFramerateLimit(this->gfxSettings.frameRateLimit);
@@ -47,7 +47,7 @@ void Game::initKeys()
 	{
 		std::string key = "";
 		int key_value = 0;
-
+		
 		while (ifs >> key >> key_value)
 		{
 			this->supportedKeys[key] = key_value;
@@ -56,11 +56,11 @@ void Game::initKeys()
 
 	ifs.close();
 
-	//DEBUG REMOVE LATER!
+//DEBUG REMOVE LATER!
 	for (auto i : this->supportedKeys)
 	{
 		std::cout << i.first << " " << i.second << "\n";
-	}
+	} 
 }
 
 void Game::initStateData()

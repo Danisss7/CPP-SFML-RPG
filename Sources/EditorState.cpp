@@ -73,12 +73,12 @@ void EditorState::initPauseMenu()
 
 void EditorState::initButtons()
 {
-
+	
 }
 
 void EditorState::initGui()
 {
-
+	
 }
 
 void EditorState::initTileMap()
@@ -128,7 +128,7 @@ EditorState::~EditorState()
 }
 
 //Functions
-void EditorState::updateInput(const float& dt)
+void EditorState::updateInput(const float & dt)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE"))) && this->getKeytime())
 	{
@@ -187,7 +187,7 @@ void EditorState::updateButtons()
 {
 	/*Updates all the buttons in the state and handles their functionlaity.*/
 
-	for (auto& it : this->buttons)
+	for (auto &it : this->buttons)
 	{
 		it.second->update(this->mousePosWindow);
 	}
@@ -195,7 +195,7 @@ void EditorState::updateButtons()
 
 void EditorState::updateGui(const float& dt)
 {
-
+	
 }
 
 void EditorState::updatePauseMenuButtons()
@@ -210,7 +210,7 @@ void EditorState::updatePauseMenuButtons()
 		this->tileMap->loadFromFile("text.slmp");
 }
 
-void EditorState::updateModes(const float& dt)
+void EditorState::updateModes(const float & dt)
 {
 	this->modes[this->activeMode]->update(dt);
 }
@@ -222,11 +222,11 @@ void EditorState::update(const float& dt)
 	this->updateInput(dt);
 
 	if (!this->paused) //Unpaused
-	{
+	{	
 		this->updateButtons();
 		this->updateGui(dt);
 		this->updateEditorInput(dt);
-		this->updateModes(dt);
+		this->updateModes(dt);		
 	}
 	else //Paused
 	{
@@ -237,7 +237,7 @@ void EditorState::update(const float& dt)
 
 void EditorState::renderButtons(sf::RenderTarget& target)
 {
-	for (auto& it : this->buttons)
+	for (auto &it : this->buttons)
 	{
 		it.second->render(target);
 	}
@@ -245,10 +245,10 @@ void EditorState::renderButtons(sf::RenderTarget& target)
 
 void EditorState::renderGui(sf::RenderTarget& target)
 {
-
+	
 }
 
-void EditorState::renderModes(sf::RenderTarget& target)
+void EditorState::renderModes(sf::RenderTarget & target)
 {
 	this->modes[this->activeMode]->render(target);
 }
@@ -273,5 +273,5 @@ void EditorState::render(sf::RenderTarget* target)
 	{
 		target->setView(this->window->getDefaultView());
 		this->pmenu->render(*target);
-	}
+	}	
 }

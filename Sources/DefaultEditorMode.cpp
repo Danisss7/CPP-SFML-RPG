@@ -102,7 +102,6 @@ void DefaultEditorMode::updateInput(const float & dt)
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->editorStateData->keybinds->at("INCREASE_TYPE"))) && this->getKeytime())
 	{
-		//CHANGE TO LIMIT TO MAX TYPE!!!!
 		++this->type;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->editorStateData->keybinds->at("DECREASE_TYPE"))) && this->getKeytime())

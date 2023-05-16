@@ -16,11 +16,11 @@ State::State(StateData* state_data)
 
 State::~State()
 {
-
+	
 }
 
 //Accessors
-const bool& State::getQuit() const
+const bool & State::getQuit() const
 {
 	return this->quit;
 }
@@ -57,16 +57,16 @@ void State::updateMousePositions(sf::View* view)
 	this->mousePosScreen = sf::Mouse::getPosition();
 	this->mousePosWindow = sf::Mouse::getPosition(*this->window);
 
-	if (view)
+	if(view)
 		this->window->setView(*view);
 
 	this->mousePosView = this->window->mapPixelToCoords(sf::Mouse::getPosition(*this->window));
-	this->mousePosGrid =
+	this->mousePosGrid = 
 		sf::Vector2i(
 			static_cast<int>(this->mousePosView.x) / static_cast<int>(this->gridSize),
 			static_cast<int>(this->mousePosView.y) / static_cast<int>(this->gridSize)
 		);
-
+	
 	this->window->setView(this->window->getDefaultView());
 }
 

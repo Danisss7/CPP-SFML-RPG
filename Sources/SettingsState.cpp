@@ -45,7 +45,7 @@ void SettingsState::initGui()
 		)
 	);
 
-	if (!this->backgroundTexture.loadFromFile("Resources/Images/Backgrounds/bg1.png"))
+	if (!this->backgroundTexture.loadFromFile("Resources/Images/Backgrounds/bg1.jpg"))
 	{
 		throw "ERROR::MAIN_MENU_STATE::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
 	}
@@ -69,7 +69,7 @@ void SettingsState::initGui()
 
 	//Modes
 	std::vector<std::string> modes_str;
-	for (auto& i : this->modes)
+	for (auto &i : this->modes)
 	{
 		modes_str.push_back(std::to_string(i.width) + 'x' + std::to_string(i.height));
 	}
@@ -133,7 +133,7 @@ SettingsState::~SettingsState()
 	{
 		delete it->second;
 	}
-
+	
 	auto it2 = this->dropDownLists.begin();
 	for (it2 = this->dropDownLists.begin(); it2 != this->dropDownLists.end(); ++it2)
 	{
@@ -144,16 +144,16 @@ SettingsState::~SettingsState()
 //Accessors
 
 //Functions
-void SettingsState::updateInput(const float& dt)
+void SettingsState::updateInput(const float & dt)
 {
 
 }
 
-void SettingsState::updateGui(const float& dt)
+void SettingsState::updateGui(const float & dt)
 {
 	/*Updates all the gui elements in the state and handle their functionlaity.*/
 	//Buttons
-	for (auto& it : this->buttons)
+	for (auto &it : this->buttons)
 	{
 		it.second->update(this->mousePosWindow);
 	}
@@ -177,7 +177,7 @@ void SettingsState::updateGui(const float& dt)
 	}
 
 	//Dropdown lists
-	for (auto& it : this->dropDownLists)
+	for (auto &it : this->dropDownLists)
 	{
 		it.second->update(this->mousePosWindow, dt);
 	}
@@ -195,12 +195,12 @@ void SettingsState::update(const float& dt)
 
 void SettingsState::renderGui(sf::RenderTarget& target)
 {
-	for (auto& it : this->buttons)
+	for (auto &it : this->buttons)
 	{
 		it.second->render(target);
 	}
 
-	for (auto& it : this->dropDownLists)
+	for (auto &it : this->dropDownLists)
 	{
 		it.second->render(target);
 	}

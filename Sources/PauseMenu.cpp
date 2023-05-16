@@ -7,7 +7,7 @@ PauseMenu::PauseMenu(sf::VideoMode& vm, sf::Font& font)
 	//Init background
 	this->background.setSize(
 		sf::Vector2f(
-			static_cast<float>(vm.width),
+			static_cast<float>(vm.width), 
 			static_cast<float>(vm.height)
 		)
 	);
@@ -58,11 +58,11 @@ const bool PauseMenu::isButtonPressed(const std::string key)
 }
 
 void PauseMenu::addButton(
-	const std::string key,
+	const std::string key, 
 	const float y,
 	const float width,
 	const float height,
-	const unsigned char_size,
+	const unsigned char_size, 
 	const std::string text)
 {
 	float x = this->container.getPosition().x + this->container.getSize().x / 2.f - width / 2.f;
@@ -77,18 +77,18 @@ void PauseMenu::addButton(
 
 void PauseMenu::update(const sf::Vector2i& mousePosWindow)
 {
-	for (auto& i : this->buttons)
+	for (auto &i : this->buttons)
 	{
 		i.second->update(mousePosWindow);
 	}
 }
 
-void PauseMenu::render(sf::RenderTarget& target)
+void PauseMenu::render(sf::RenderTarget & target)
 {
 	target.draw(this->background);
 	target.draw(this->container);
 
-	for (auto& i : this->buttons)
+	for (auto &i : this->buttons)
 	{
 		i.second->render(target);
 	}

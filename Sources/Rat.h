@@ -1,10 +1,8 @@
-#ifndef RAT_H
-#define RAT_H
+#pragma once
 
 #include "Enemy.h"
 
-class Rat :
-	public Enemy
+class Rat : public Enemy
 {
 private:
 	void initVariables();
@@ -26,5 +24,3 @@ public:
 
 	void render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vector2f light_position, const bool show_hitbox);
 };
-
-#endif //!RAT_H

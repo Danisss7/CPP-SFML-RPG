@@ -89,7 +89,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Sources/Main.cpp" />
+    <ClCompile Include="Sources\AIComponent.cpp" />
+    <ClCompile Include="Sources\AIFollow.cpp" />
+    <ClCompile Include="Sources\AIOption.cpp" />
     <ClCompile Include="Sources\AnimationComponent.cpp" />
+    <ClCompile Include="Sources\AttributeComponent.cpp" />
+    <ClCompile Include="Sources\Bird.cpp" />
+    <ClCompile Include="Sources\CharacterTab.cpp" />
+    <ClCompile Include="Sources\DefaultEditorMode.cpp" />
+    <ClCompile Include="Sources\EditorMode.cpp" />
+    <ClCompile Include="Sources\Enemy.cpp" />
+    <ClCompile Include="Sources\EnemyEditorMode.cpp" />
+    <ClCompile Include="Sources\EnemySpawnerTile.cpp" />
+    <ClCompile Include="Sources\EnemySystem.cpp" />
     <ClCompile Include="Sources\GraphicsSettings.cpp" />
     <ClCompile Include="Sources\Gui.cpp" />
     <ClCompile Include="Sources\EditorState.cpp" />
@@ -97,18 +109,32 @@
     <ClCompile Include="Sources\Game.cpp" />
     <ClCompile Include="Sources\GameState.cpp" />
     <ClCompile Include="Sources\HitboxComponent.cpp" />
+    <ClCompile Include="Sources\Inventory.cpp" />
+    <ClCompile Include="Sources\Item.cpp" />
     <ClCompile Include="Sources\MainMenuState.cpp" />
+    <ClCompile Include="Sources\MeleeWeapon.cpp" />
     <ClCompile Include="Sources\MovementComponent.cpp" />
     <ClCompile Include="Sources\PauseMenu.cpp" />
     <ClCompile Include="Sources\Player.cpp" />
+    <ClCompile Include="Sources\PlayerGUI.cpp" />
+    <ClCompile Include="Sources\PlayerGUITabs.cpp" />
+    <ClCompile Include="Sources\RangedWeapon.cpp" />
+    <ClCompile Include="Sources\Rat.cpp" />
+    <ClCompile Include="Sources\RegularTile.cpp" />
     <ClCompile Include="Sources\SettingsState.cpp" />
+    <ClCompile Include="Sources\SkillComponent.cpp" />
     <ClCompile Include="Sources\State.cpp" />
     <ClCompile Include="Sources\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Sources\Sword.cpp" />
+    <ClCompile Include="Sources\Tab.cpp" />
+    <ClCompile Include="Sources\TextTagSystem.cpp" />
     <ClCompile Include="Sources\Tile.cpp" />
     <ClCompile Include="Sources\TileMap.cpp" />
+    <ClCompile Include="Sources\VectorMath.cpp" />
+    <ClCompile Include="Sources\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\background.png" />
@@ -117,7 +143,20 @@
     <Image Include="Resources\platform.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Sources\AIComponent.h" />
+    <ClInclude Include="Sources\AIFollow.h" />
+    <ClInclude Include="Sources\AIOption.h" />
     <ClInclude Include="Sources\AnimationComponent.h" />
+    <ClInclude Include="Sources\AttributeComponent.h" />
+    <ClInclude Include="Sources\Bird.h" />
+    <ClInclude Include="Sources\CharacterTab.h" />
+    <ClInclude Include="Sources\DefaultEditorMode.h" />
+    <ClInclude Include="Sources\EditorMode.h" />
+    <ClInclude Include="Sources\EditorModes.h" />
+    <ClInclude Include="Sources\Enemy.h" />
+    <ClInclude Include="Sources\EnemyEditorMode.h" />
+    <ClInclude Include="Sources\EnemySpawnerTile.h" />
+    <ClInclude Include="Sources\EnemySystem.h" />
     <ClInclude Include="Sources\GraphicsSettings.h" />
     <ClInclude Include="Sources\Gui.h" />
     <ClInclude Include="Sources\EditorState.h" />
@@ -125,15 +164,30 @@
     <ClInclude Include="Sources\Game.h" />
     <ClInclude Include="Sources\GameState.h" />
     <ClInclude Include="Sources\HitboxComponent.h" />
+    <ClInclude Include="Sources\Inventory.h" />
+    <ClInclude Include="Sources\Item.h" />
+    <ClInclude Include="Sources\Items.h" />
     <ClInclude Include="Sources\MainMenuState.h" />
+    <ClInclude Include="Sources\MeleeWeapon.h" />
     <ClInclude Include="Sources\MovementComponent.h" />
     <ClInclude Include="Sources\PauseMenu.h" />
     <ClInclude Include="Sources\Player.h" />
+    <ClInclude Include="Sources\PlayerGUI.h" />
+    <ClInclude Include="Sources\PlayerGUITabs.h" />
+    <ClInclude Include="Sources\RangedWeapon.h" />
+    <ClInclude Include="Sources\Rat.h" />
+    <ClInclude Include="Sources\RegularTile.h" />
     <ClInclude Include="Sources\SettingsState.h" />
+    <ClInclude Include="Sources\SkillComponent.h" />
     <ClInclude Include="Sources\State.h" />
     <ClInclude Include="Sources\stdafx.h" />
+    <ClInclude Include="Sources\Sword.h" />
+    <ClInclude Include="Sources\Tab.h" />
+    <ClInclude Include="Sources\TextTagSystem.h" />
     <ClInclude Include="Sources\Tile.h" />
     <ClInclude Include="Sources\TileMap.h" />
+    <ClInclude Include="Sources\VectorMath.h" />
+    <ClInclude Include="Sources\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\window.ini" />

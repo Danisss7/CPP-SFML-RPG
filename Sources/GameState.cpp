@@ -11,9 +11,9 @@ void GameState::initDeferredRender()
 	this->renderSprite.setTexture(this->renderTexture.getTexture());
 	this->renderSprite.setTextureRect(
 		sf::IntRect(
-			0,
-			0,
-			this->stateData->gfxSettings->resolution.width,
+			0, 
+			0, 
+			this->stateData->gfxSettings->resolution.width, 
 			this->stateData->gfxSettings->resolution.height
 		)
 	);
@@ -70,7 +70,7 @@ void GameState::initTextures()
 		throw "ERROR::GAME_STATE::COULD_NOT_LOAD_PLAYER_TEXTURE";
 	}
 
-	if (!this->textures["RAT1_SHEET"].loadFromFile("Resources/Images/Sprites/Enemy/rat1_60x64.png"))
+	if(!this->textures["RAT1_SHEET"].loadFromFile("Resources/Images/Sprites/Enemy/rat1_60x64.png"))
 	{
 		throw "ERROR::GAME_STATE::COULD_NOT_LOAD_RAT1_TEXTURE";
 	}
@@ -93,7 +93,7 @@ void GameState::initShaders()
 {
 	if (!this->core_shader.loadFromFile("vertex_shader.vert", "fragment_shader.frag"))
 	{
-		std::cout << "ERROR::GAMESTATE::COULD NOT LOAD SHADER." << "\n";
+		throw "ERROR::GAMESTATE::COULD NOT LOAD SHADER.";
 	}
 }
 
@@ -173,24 +173,24 @@ GameState::~GameState()
 }
 
 const bool GameState::getKeyTime()
-{
+{	
 	if (this->keyTimer.getElapsedTime().asSeconds() >= this->keyTimeMax)
 	{
 		this->keyTimer.restart();
 		return true;
 	}
 
-	return false;
+	return false;	
 }
 
 //Functions
-void GameState::updateView(const float& dt)
+void GameState::updateView(const float & dt)
 {
 	this->view.setCenter(
 		std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) - static_cast<float>(this->stateData->gfxSettings->resolution.width / 2)) / 10.f),
 		std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) - static_cast<float>(this->stateData->gfxSettings->resolution.height / 2)) / 10.f)
 	);
-
+	
 	if (this->tileMap->getMaxSizeF().x >= this->view.getSize().x)
 	{
 		if (this->view.getCenter().x - this->view.getSize().x / 2.f < 0.f)
@@ -219,7 +219,7 @@ void GameState::updateView(const float& dt)
 	this->viewGridPosition.y = static_cast<int>(this->view.getCenter().y) / static_cast<int>(this->stateData->gridSize);
 }
 
-void GameState::updateInput(const float& dt)
+void GameState::updateInput(const float & dt)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE"))) && this->getKeytime())
 	{
@@ -230,7 +230,7 @@ void GameState::updateInput(const float& dt)
 	}
 }
 
-void GameState::updatePlayerInput(const float& dt)
+void GameState::updatePlayerInput(const float & dt)
 {
 	//Update player input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_LEFT"))))
@@ -247,7 +247,7 @@ void GameState::updatePlayerInput(const float& dt)
 	}
 }
 
-void GameState::updatePlayerGUI(const float& dt)
+void GameState::updatePlayerGUI(const float & dt)
 {
 	this->playerGUI->update(dt);
 
@@ -263,34 +263,33 @@ void GameState::updatePauseMenuButtons()
 		this->endState();
 }
 
-void GameState::updateTileMap(const float& dt)
+void GameState::updateTileMap(const float & dt)
 {
-	this->tileMap->updateWorldBoundsCollision(this->player, dt);
+	this->tileMap->updateWorldBoundsCollision(this->player, dt); 
 	this->tileMap->updateTileCollision(this->player, dt);
 	this->tileMap->updateTiles(this->player, dt, *this->enemySystem);
 }
 
-void GameState::updatePlayer(const float& dt)
+void GameState::updatePlayer(const float & dt)
 {
 	this->player->update(dt, this->mousePosView, this->view);
 }
 
-void GameState::updateCombatAndEnemies(const float& dt)
+void GameState::updateCombatAndEnemies(const float & dt)
 {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->player->getWeapon()->getAttackTimer())
 		this->player->setInitAttack(true);
 
-	unsigned index = 0;
-	for (auto* enemy : this->activeEnemies)
+
+	for (auto *enemy : this->activeEnemies)
 	{
 		enemy->update(dt, this->mousePosView, this->view);
 
 		this->tileMap->updateWorldBoundsCollision(enemy, dt);
 		this->tileMap->updateTileCollision(enemy, dt);
 
-		this->updateCombat(enemy, index, dt);
+	  this->updateCombat(enemy, index, dt);
 
-		//DANGEROUS!!!
 		if (enemy->isDead())
 		{
 			this->player->gainEXP(enemy->getGainExp());
@@ -311,18 +310,18 @@ void GameState::updateCombatAndEnemies(const float& dt)
 	this->player->setInitAttack(false);
 }
 
-void GameState::updateCombat(Enemy* enemy, const int index, const float& dt)
+void GameState::updateCombat(Enemy* enemy, const int index, const float & dt)
 {
 	if (this->player->getInitAttack()
-		&& enemy->getGlobalBounds().contains(this->mousePosView)
-		&& enemy->getSpriteDistance(*this->player) < this->player->getWeapon()->getRange()
+	  && enemy->getGlobalBounds().contains(this->mousePosView)
+		&& enemy->getSpriteDistance(*this->player) < this->player->getWeapon()->getRange() 
 		&& enemy->getDamageTimerDone())
 	{
 		//Get to this!!!!
 		int dmg = static_cast<int>(this->player->getDamage());
 		enemy->loseHP(dmg);
 		enemy->resetDamageTimer();
-		this->tts->addTextTag(DEFAULT_TAG, enemy->getPosition().x, enemy->getPosition().y, dmg, "", "");
+		this->tts->addTextTag(DEFAULT_TAG, enemy->getPosition().x, enemy->getPosition().y, dmg, "", "");	
 	}
 
 	//Check for enemy damage
@@ -339,7 +338,7 @@ void GameState::updateDebugText(const float& dt)
 	std::stringstream ss;
 
 	ss << "Mouse Pos View: " << this->mousePosView.x << " " << this->mousePosView.y << "\n"
-		<< "Active Enemies: " << this->activeEnemies.size() << "\n";
+	<< "Active Enemies: " << this->activeEnemies.size() << "\n";
 
 	this->debugText.setString(ss.str());
 }
@@ -351,7 +350,7 @@ void GameState::update(const float& dt)
 	this->updateInput(dt);
 
 	this->updateDebugText(dt);
-
+	
 	if (!this->paused) //Unpaused update
 	{
 		this->updateView(dt);
@@ -388,14 +387,14 @@ void GameState::render(sf::RenderTarget* target)
 	this->renderTexture.setView(this->view);
 
 	this->tileMap->render(
-		this->renderTexture,
-		this->viewGridPosition,
+		this->renderTexture, 
+		this->viewGridPosition, 
 		&this->core_shader,
 		this->player->getCenter(),
 		false
 	);
 
-	for (auto* enemy : this->activeEnemies)
+	for (auto *enemy : this->activeEnemies)
 	{
 		enemy->render(this->renderTexture, &this->core_shader, this->player->getCenter(), true);
 	}
@@ -412,7 +411,6 @@ void GameState::render(sf::RenderTarget* target)
 
 	if (this->paused) //Pause menu render
 	{
-		//this->renderTexture.setView(this->renderTexture.getDefaultView());
 		this->pmenu->render(this->renderTexture);
 	}
 
@@ -421,7 +419,7 @@ void GameState::render(sf::RenderTarget* target)
 
 	//FINAL RENDER
 	this->renderTexture.display();
-	//this->renderSprite.setTexture(this->renderTexture.getTexture());
+
 	target->draw(this->renderSprite);
 }
 

@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "MovementComponent.h"
 
-MovementComponent::MovementComponent(sf::Sprite& sprite,
+MovementComponent::MovementComponent(sf::Sprite& sprite, 
 	float maxVelocity, float acceleration, float deceleration)
 	: sprite(sprite),
 	maxVelocity(maxVelocity), acceleration(acceleration), deceleration(deceleration)
 {
-
+	
 }
 
 MovementComponent::~MovementComponent()
@@ -15,12 +15,12 @@ MovementComponent::~MovementComponent()
 }
 
 //Accessors
-const float& MovementComponent::getMaxVelocity() const
+const float & MovementComponent::getMaxVelocity() const
 {
 	return this->maxVelocity;
 }
 
-const sf::Vector2f& MovementComponent::getVelocity() const
+const sf::Vector2f & MovementComponent::getVelocity() const
 {
 	return this->velocity;
 }
@@ -106,7 +106,7 @@ void MovementComponent::move(const float dir_x, const float dir_y, const float& 
 	this->velocity.y += this->acceleration * dir_y * dt;
 }
 
-void MovementComponent::update(const float& dt)
+void MovementComponent::update(const float & dt)
 {
 	/*
 	Decelerates the sprite and controls the maximum velocity.
@@ -124,7 +124,7 @@ void MovementComponent::update(const float& dt)
 		if (this->velocity.x < 0.f)
 			this->velocity.x = 0.f;
 	}
-	else if (this->velocity.x < 0.f) //Check for negative x
+	else if(this->velocity.x < 0.f) //Check for negative x
 	{
 		//Max velocity check
 		if (this->velocity.x < -this->maxVelocity)
@@ -135,7 +135,7 @@ void MovementComponent::update(const float& dt)
 		if (this->velocity.x > 0.f)
 			this->velocity.x = 0.f;
 	}
-
+	
 	if (this->velocity.y > 0.f) //Check for positive y
 	{
 		//Max velocity check

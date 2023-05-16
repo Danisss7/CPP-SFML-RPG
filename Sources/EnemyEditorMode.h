@@ -1,5 +1,4 @@
-#ifndef ENEMYEDITORMODE_H
-#define ENEMYEDITORMODE_H
+#pragma once
 
 #include "EditorMode.h"
 #include "EnemySpawnerTile.h"
@@ -40,5 +39,3 @@ public:
 	void renderGui(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };
-
-#endif //!ENEMYEDITORMODE_H

@@ -24,7 +24,12 @@ public:
 	int defence;
 	int luck;
 
-	//Con / Des
+	AttributeComponent operator += (int a)
+	{
+		return this->exp + a;
+	}
+
+	//Constructor / Destructor
 	AttributeComponent(int level);
 	virtual ~AttributeComponent();
 
@@ -32,7 +37,6 @@ public:
 	std::string debugPrint() const;
 
 	void loseHP(const int hp);
-	void gainHP(const int hp);
 	void loseEXP(const int exp);
 	void gainExp(const int exp);
 

@@ -1,6 +1,6 @@
 #pragma once
 
-enum button_states { BTN_IDLE = 0, BTN_HOVER, BTN_ACTIVE };
+enum button_states{BTN_IDLE = 0, BTN_HOVER, BTN_ACTIVE};
 
 namespace gui
 {
@@ -65,8 +65,8 @@ namespace gui
 		bool showList;
 
 	public:
-		DropDownList(float x, float y, float width, float height,
-			sf::Font& font, std::string list[],
+		DropDownList(float x, float y, float width, float height, 
+			sf::Font& font, std::string list[], 
 			unsigned nrOfElements, unsigned default_index = 0);
 		~DropDownList();
 
@@ -96,8 +96,8 @@ namespace gui
 		sf::IntRect textureRect;
 
 	public:
-		TextureSelector(float x, float y, float width, float height,
-			float gridSize, const sf::Texture* texture_sheet,
+		TextureSelector(float x, float y, float width, float height, 
+			float gridSize, const sf::Texture* texture_sheet, 
 			sf::Font& font, std::string text);
 		~TextureSelector();
 
@@ -133,6 +133,6 @@ namespace gui
 
 		//Functions
 		void update(const int current_value, const int max_value);
-		void render(sf::RenderTarget& target);
+		void render(sf::RenderTarget & target);
 	};
 }

@@ -44,14 +44,6 @@ void AttributeComponent::loseHP(const int hp)
 		this->hp = 0;
 }
 
-void AttributeComponent::gainHP(const int hp)
-{
-	this->hp += hp;
-
-	if (this->hp > this->hpMax)
-		this->hp = this->hpMax;
-}
-
 void AttributeComponent::loseEXP(const int exp)
 {
 	this->exp -= exp;

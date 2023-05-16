@@ -1,5 +1,4 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
 #include "Entity.h"
 #include "Items.h"
@@ -7,8 +6,7 @@
 
 class Entity;
 
-class Player :
-	public Entity
+class Player : public Entity
 {
 private:
 	//Variables
@@ -30,7 +28,7 @@ private:
 public:
 	Player(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Player();
-
+	
 	//Accessors
 	AttributeComponent* getAttributeComponent();
 	Weapon* getWeapon() const;
@@ -47,7 +45,6 @@ public:
 
 	//Functions
 	void loseHP(const int hp);
-	void gainHP(const int hp);
 	void loseEXP(const int exp);
 	void gainEXP(const int exp);
 
@@ -56,5 +53,3 @@ public:
 
 	void render(sf::RenderTarget& target, sf::Shader* shader = NULL, const sf::Vector2f light_position = sf::Vector2f(), const bool show_hitbox = false);
 };
-
-#endif

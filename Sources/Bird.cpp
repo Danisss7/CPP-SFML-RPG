@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Bird1.h"
+#include "Bird.h"
 
 //Initializer functions
 void Bird1::initVariables()
@@ -14,7 +14,6 @@ void Bird1::initAnimations()
 	this->animationComponent->addAnimation("WALK_LEFT", 11.f, 0, 1, 2, 1, 61, 57);
 	this->animationComponent->addAnimation("WALK_RIGHT", 11.f, 0, 2, 2, 2, 61, 57);
 	this->animationComponent->addAnimation("WALK_UP", 11.f, 0, 3, 2, 3, 61, 57);
-	//this->animationComponent->addAnimation("ATTACK", 5.f, 0, 2, 1, 2, 61, 57);
 }
 
 void Bird1::initAI()
@@ -92,11 +91,9 @@ void Bird1::update(const float& dt, sf::Vector2f& mouse_pos_view, const sf::View
 
 	this->movementComponent->update(dt);
 
-	//Update GUI REMOVE THIS!!!!
+	//Update GUI
 	this->hpBar.setSize(sf::Vector2f(60.f * (static_cast<float>(this->attributeComponent->hp) / this->attributeComponent->hpMax), 10.f));
 	this->hpBar.setPosition(this->sprite.getPosition());
-
-	//this->updateAttack();
 
 	this->updateAnimation(dt);
 

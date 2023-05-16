@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Weapon.h"
 
 class RangedWeapon :

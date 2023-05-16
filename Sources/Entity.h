@@ -1,5 +1,4 @@
 #pragma once
-
 #include "HitboxComponent.h"
 #include "MovementComponent.h"
 #include "AnimationComponent.h"
@@ -12,7 +11,7 @@ class AnimationComponent;
 class AttributeComponent;
 class SkillComponent;
 
-class Entity
+class Entity : public SkillComponent
 {
 private:
 	void initVariables();
@@ -33,7 +32,7 @@ public:
 
 	//Component functions
 	void setTexture(sf::Texture& texture);
-	void createHitboxComponent(sf::Sprite& sprite,
+	void createHitboxComponent(sf::Sprite& sprite, 
 		float offset_x, float offset_y,
 		float width, float height);
 	void createMovementComponent(const float maxVelocity, const float acceleration, const float deceleration);
@@ -58,7 +57,7 @@ public:
 
 	//Modifiers
 	virtual void setPosition(const float x, const float y);
-
+	
 	//Functions
 	virtual void move(const float x, const float y, const float& dt);
 	virtual void stopVelocity();
@@ -72,3 +71,4 @@ public:
 	virtual void update(const float& dt, sf::Vector2f& mouse_pos_view, const sf::View& view) = 0;
 	virtual void render(sf::RenderTarget& target, sf::Shader* shader, const sf::Vector2f light_position, const bool show_hitbox) = 0;
 };
+

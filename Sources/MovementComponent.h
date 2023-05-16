@@ -16,7 +16,7 @@ private:
 	//Initializer functions
 
 public:
-	MovementComponent(sf::Sprite& sprite,
+	MovementComponent(sf::Sprite& sprite, 
 		float maxVelocity, float acceleration, float deceleration);
 	virtual ~MovementComponent();
 

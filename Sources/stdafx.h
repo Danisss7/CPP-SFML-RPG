@@ -1,4 +1,3 @@
-//header.h
 #pragma once
 
 //Core
@@ -24,3 +23,7 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include <SFML\Network.hpp>
+
+//Custom
+#include "VectorMath.h"
+

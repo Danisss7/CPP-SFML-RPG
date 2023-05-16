@@ -1,6 +1,6 @@
 #pragma once
 
-enum TileTypes { DEFAULT = 0, DAMAGING, DOODAD, ENEMYSPAWNER };
+enum TileTypes {DEFAULT = 0, DAMAGING, DOODAD, ENEMYSPAWNER};
 
 class Tile
 {
@@ -13,14 +13,14 @@ protected:
 
 public:
 	Tile();
-	Tile(short type, int grid_x, int grid_y, float gridSizeF,
+	Tile(short type, int grid_x, int grid_y, float gridSizeF, 
 		const sf::Texture& texture, const sf::IntRect& texture_rect,
 		const bool collision);
 	virtual ~Tile();
 
 	//Accessors
 	const short& getType() const;
-	virtual const bool& getCollision() const;
+	virtual const bool & getCollision() const;
 
 	//Functions
 	virtual const sf::Vector2f& getPosition() const;

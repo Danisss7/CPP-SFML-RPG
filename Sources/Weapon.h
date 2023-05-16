@@ -1,9 +1,7 @@
-#pragma once 
-
+#pragma once
 #include "Item.h"
 
-class Weapon :
-	public Item
+class Weapon : public Item
 {
 private:
 	void initVariables();
