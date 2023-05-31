@@ -53,8 +53,6 @@ const unsigned & Inventory::maxSize() const
 	return this->capacity;
 }
 
-//Modifiers
-
 //Functions
 
 void Inventory::clear()

@@ -15,9 +15,6 @@ private:
 	float enemyMaxDistance;
 	bool firstSpawn;
 
-	//Spawn timer
-
-
 public:
 	EnemySpawnerTile(int grid_x, int grid_y, float gridSizeF,
 		const sf::Texture& texture, const sf::IntRect& texture_rect,

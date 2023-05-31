@@ -15,6 +15,7 @@ public:
 		std::string texture_file);
 	virtual ~MeleeWeapon();
 
+	
 	//Functions
 	virtual MeleeWeapon* clone() = 0;
 	virtual void generate(const unsigned levelMin, const unsigned levelMax);

@@ -68,6 +68,7 @@ private:
 
 		}
 
+		
 		//Accessor
 		inline const bool isExpired() const{ return this->lifetime <= 0.f; }
 

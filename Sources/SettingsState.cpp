@@ -141,8 +141,6 @@ SettingsState::~SettingsState()
 	}
 }
 
-//Accessors
-
 //Functions
 void SettingsState::updateInput(const float & dt)
 {
@@ -168,7 +166,6 @@ void SettingsState::updateGui(const float & dt)
 	//Apply selected settings
 	if (this->buttons["APPLY"]->isPressed())
 	{
-		//TEST REMOVE LATER
 		this->stateData->gfxSettings->resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
 
 		this->window->create(this->stateData->gfxSettings->resolution, this->stateData->gfxSettings->title, sf::Style::Default);
@@ -181,8 +178,6 @@ void SettingsState::updateGui(const float & dt)
 	{
 		it.second->update(this->mousePosWindow, dt);
 	}
-
-	//Dropdown lists functionality
 }
 
 void SettingsState::update(const float& dt)
@@ -217,13 +212,13 @@ void SettingsState::render(sf::RenderTarget* target)
 
 	target->draw(this->optionsText);
 
-	//REMOVE LATER!!!
-	sf::Text mouseText;
-	mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
-	mouseText.setFont(this->font);
-	mouseText.setCharacterSize(12);
-	std::stringstream ss;
-	ss << this->mousePosView.x << " " << this->mousePosView.y;
-	mouseText.setString(ss.str());
-	target->draw(mouseText);
+	////REMOVE LATER!!!
+	//sf::Text mouseText;
+	//mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
+	//mouseText.setFont(this->font);
+	//mouseText.setCharacterSize(12);
+	//std::stringstream ss;
+	//ss << this->mousePosView.x << " " << this->mousePosView.y;
+	//mouseText.setString(ss.str());
+	//target->draw(mouseText);
 }

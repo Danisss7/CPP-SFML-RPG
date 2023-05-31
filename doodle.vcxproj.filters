@@ -229,9 +229,6 @@
     <ClInclude Include="Sources\Item.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Items.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="Sources\Sword.h">
       <Filter>Sources</Filter>
     </ClInclude>
@@ -298,10 +295,19 @@
     <ClInclude Include="Sources\Bird.h">
       <Filter>Sources</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Items.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\window.ini">
       <Filter>config</Filter>
+    </None>
+    <None Include="Sources\fragment_shader.frag">
+      <Filter>Sources</Filter>
+    </None>
+    <None Include="Sources\vertex_shader.vert">
+      <Filter>Sources</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

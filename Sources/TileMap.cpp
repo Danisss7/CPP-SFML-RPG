@@ -24,7 +24,6 @@ void TileMap::clear()
 		}
 		this->map.clear();
 	}
-	//std::cout << this->map.size() << "\n";
 }
 
 TileMap::TileMap(float gridSize, int width, int height, std::string texture_file)
@@ -175,14 +174,12 @@ void TileMap::removeTile(const int x, const int y, const int z, const int type)
 				{
 					delete this->map[x][y][z][this->map[x][y][z].size() - 1];
 					this->map[x][y][z].pop_back();
-					//std::cout << "DEGBUG: REMOVED TILE!" << "\n";
 				}
 			}
 			else
 			{
 				delete this->map[x][y][z][this->map[x][y][z].size() - 1];
 				this->map[x][y][z].pop_back();
-				//std::cout << "DEGBUG: REMOVED TILE!" << "\n";
 			}			
 		}
 	}

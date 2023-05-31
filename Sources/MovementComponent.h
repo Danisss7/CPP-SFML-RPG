@@ -13,8 +13,6 @@ private:
 
 	sf::Vector2f velocity;
 
-	//Initializer functions
-
 public:
 	MovementComponent(sf::Sprite& sprite, 
 		float maxVelocity, float acceleration, float deceleration);

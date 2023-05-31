@@ -22,8 +22,6 @@ public:
 	const unsigned& size() const;
 	const unsigned& maxSize() const;
 
-	//Modifiers
-
 	//Functions
 	void clear();
 	const bool empty() const;

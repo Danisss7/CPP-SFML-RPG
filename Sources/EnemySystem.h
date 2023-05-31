@@ -18,10 +18,6 @@ public:
 		std::map<std::string, sf::Texture>& textures, Entity& player);
 	virtual ~EnemySystem();
 
-	//Accessors
-
-	//Modifiers
-
 	//Functions
 	void createEnemy(const short type, const float xPos, const float yPos, EnemySpawnerTile& enemy_spawner_tile);
 	void removeEnemy(const int index);

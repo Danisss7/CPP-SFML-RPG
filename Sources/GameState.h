@@ -7,10 +7,10 @@
 #include "Sword.h"
 #include "TextTagSystem.h"
 
-class GameState : public State
+class GameState :
+	public State
 {
 private:
-	unsigned index = 0;
 	sf::View view;
 	sf::Vector2i viewGridPosition;
 	sf::RenderTexture renderTexture;
@@ -29,9 +29,9 @@ private:
 	Player* player;
 	PlayerGUI* playerGUI;
 	sf::Texture texture;
-	
+
 	std::vector<Enemy*> activeEnemies;
-	EnemySystem *enemySystem;
+	EnemySystem* enemySystem;
 
 	TileMap* tileMap;
 
@@ -58,12 +58,6 @@ private:
 public:
 	GameState(StateData* state_data);
 	virtual ~GameState();
-
-	//Operator overload
-	GameState operator++()
-	{
-		++index;
-	}
 
 	//Accessors
 	const bool getKeyTime();

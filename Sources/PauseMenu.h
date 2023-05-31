@@ -15,8 +15,6 @@ private:
 
 	std::map<std::string, gui::Button*> buttons;
 
-	//Private Functions
-
 public:
 	PauseMenu(sf::VideoMode& vm, sf::Font& font);
 	virtual ~PauseMenu();

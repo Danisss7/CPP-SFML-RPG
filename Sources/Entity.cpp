@@ -172,7 +172,6 @@ void Entity::move(const float dir_x, const float dir_y, const float& dt)
 	if (this->skillComponent)
 	{
 		this->skillComponent->gainExp(SKILLS::ENDURANCE, 1);
-		//std::cout <<this->skillComponent->getSkill(SKILLS::ENDURANCE) << "\n";
 	}
 }
 

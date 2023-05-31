@@ -6,11 +6,7 @@ int main()
 {
 	Game game;
 
-	//HWND hWnd = GetConsoleWindow();
-	//ShowWindow(hWnd, SW_HIDE);
-
 	game.run();
 
-	//system("pause");
 	return 0;
 }

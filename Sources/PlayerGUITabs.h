@@ -10,19 +10,13 @@ private:
 	
 	std::vector<Tab*> tabs;
 
-	//Core
 	sf::VideoMode& vm;
 	sf::Font& font;
 	Player& player;
 
 	sf::Clock keyTimer;
 	float keyTimeMax;
-
-	//Tabs
-
-	//Character Tab
 	
-	//Private functions
 	void initTabs();
 	void initKeyTime();
 

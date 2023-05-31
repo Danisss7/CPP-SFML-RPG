@@ -1,4 +1,4 @@
-varying in vec4 vert_pos;
+vec4 vert_pos;
 
 uniform sampler2D texture;
 uniform bool hasTexture;
@@ -6,7 +6,8 @@ uniform vec2 lightPos;
 
 void main()
 {
-	//Ambient light
+	
+	Ambient light
 	vec4 ambient = vec4(0.02, 0.02, 0.5, 1.0);
 	
 	//Convert light to view coords
